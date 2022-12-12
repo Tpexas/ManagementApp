@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link   rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid">
+  <div>
+    <h2 class="text-center">[[${pageTitle}]]</h2>
+  </div>
+
+  <form th:action="@{/pacientai/issaugoti}" method="post" th:object="${patient}"
+  style="max-width: 500px; margin: 0 auto;">
+    <div class="border border-secondary rounded p-3">
+      <div class="mb-3 row">
+        <label class="col-sm-4 col-form-label">El. paštas:</label>
+          <div class="col-sm-8">
+              <input type="email" th:field="*{email}" class="form-control" required />
+          </div>
+      </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Vardas:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{name}" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Pavardė:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{surname}" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Slaptažodis:</label>
+            <div class="col-sm-8">
+                <input type="password" th:field="*{password}" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Telefonas:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{phone}" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Adresas:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{address}" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Asmens kodas:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{personalCode}" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-4 col-form-label">Amžius:</label>
+            <div class="col-sm-8">
+                <input type="text" th:field="*{age}" class="form-control"/>
+            </div>
+        </div>
+
+        <label>Lytis:</label>
+<!--        <ul>-->
+            <div class="d-inline" th:each="gender:${T(com.mygroup.patient.Gender).values()}">
+<!--                <div class="ui checkboxes inline">-->
+                    <input type="radio" th:id="${{gender}}" th:value="${{gender}}" th:field="*{gender}">
+                    <label th:text="${{gender}}"></label>
+<!--                </div>-->
+            </div>
+<!--        </ul>-->
+
+        <div class="text-center">
+            <button class="btn btn-primary m-2" type="submit">Išsaugoti</button>
+            <button class="btn btn-secondary m-2" type="button" onclick="cancelForm()">Atšaukti</button>
+        </div>
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+    function cancelForm(){
+        window.location = "[[@{/pacientai}]]";
+    }
+</script>
+</body>
+</html>

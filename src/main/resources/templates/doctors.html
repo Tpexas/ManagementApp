@@ -1,0 +1,54 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Gydytojai</title>
+  <link   rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+  <div><h2>Gydytojų valdymas</h2></div>
+  <div class="m-2">
+    <a class="h3" th:href="@{/gydytojai/naujas}">Pridėti naują gydytoją</a>
+  </div>
+</div>
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Vardas</th>
+    <th>Pavardė</th>
+    <th>Asmens kodas</th>
+    <th>El. paštas</th>
+    <th>Slaptažodis</th>
+    <th>Telefonas</th>
+    <th>Adresas</th>
+    <th>Amžius</th>
+    <th>Lytis</th>
+    <th>Nuotrauka</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <th:block th:each="doctor : ${listPatients}">
+    <tr>
+      <td>[[${doctor.patientID}]]</td>
+      <td>[[${doctor.name}]]</td>
+      <td>[[${doctor.surname}]]</td>
+      <td>[[${doctor.personalCode}]]</td>
+      <td>[[${doctor.email}]]</td>
+      <td>[[${doctor.password}]]</td>
+      <td>[[${doctor.phone}]]</td>
+      <td>[[${doctor.address}]]</td>
+      <td>[[${doctor.age}]]</td>
+      <td>[[${doctor.gender}]]</td>
+      <td>nuotrauka</td>
+      <td>
+        <a class="h4 me-3" th:href="@{'/gydytojai/redaguoti/' + ${doctor.employeeID}}">Redaguoti</a>
+        <a class="h4 me-3" th:href="@{'/gydytojai/istrinti/' + ${doctor.employeeID}}">Ištrinti</a>
+      </td>
+    </tr>
+  </th:block>
+  </tbody>
+</table>
+</body>
+</html>

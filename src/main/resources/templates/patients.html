@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacientai</title>
+    <link   rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Pacientų valdymas</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/pacientai/naujas}">Pridėti naują pacientą</a>
+    </div>
+</div>
+
+<div th:if="${message}" class="alert alert-success text-center">
+    [[${message}]]
+</div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vardas</th>
+                <th>Pavardė</th>
+                <th>Asmens kodas</th>
+                <th>El. paštas</th>
+                <th>Slaptažodis</th>
+                <th>Telefonas</th>
+                <th>Adresas</th>
+                <th>Amžius</th>
+                <th>Lytis</th>
+                <th>Nuotrauka</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="patient : ${listPatients}">
+            <tr>
+                <td>[[${patient.patientID}]]</td>
+                <td>[[${patient.name}]]</td>
+                <td>[[${patient.surname}]]</td>
+                <td>[[${patient.personalCode}]]</td>
+                <td>[[${patient.email}]]</td>
+                <td>[[${patient.password}]]</td>
+                <td>[[${patient.phone}]]</td>
+                <td>[[${patient.address}]]</td>
+                <td>[[${patient.age}]]</td>
+                <td>[[${patient.gender}]]</td>
+                <td>nuotrauka</td>
+                <td>
+                    <a class="h4 me-3" th:href="@{'/pacientai/redaguoti/' + ${patient.patientID}}">Redaguoti</a>
+                    <a class="h4 me-3" th:href="@{'/pacientai/istrinti/' + ${patient.patientID}}">Ištrinti</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
