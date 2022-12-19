@@ -11,6 +11,9 @@
     <a class="h3" th:href="@{/gydytojai/naujas}">Pridėti naują gydytoją</a>
   </div>
 </div>
+<div th:if="${message}" class="alert alert-success text-center">
+  [[${message}]]
+</div>
 <table class="table table-bordered table-striped">
   <thead>
   <tr>
@@ -19,7 +22,7 @@
     <th>Pavardė</th>
     <th>Asmens kodas</th>
     <th>El. paštas</th>
-    <th>Slaptažodis</th>
+    <th>Sritis</th>
     <th>Telefonas</th>
     <th>Adresas</th>
     <th>Amžius</th>
@@ -29,22 +32,22 @@
   </tr>
   </thead>
   <tbody>
-  <th:block th:each="doctor : ${listPatients}">
+  <th:block th:each="doctor : ${listDoctors}">
     <tr>
-      <td>[[${doctor.patientID}]]</td>
+      <td>[[${doctor.doctorID}]]</td>
       <td>[[${doctor.name}]]</td>
       <td>[[${doctor.surname}]]</td>
       <td>[[${doctor.personalCode}]]</td>
       <td>[[${doctor.email}]]</td>
-      <td>[[${doctor.password}]]</td>
+      <td>[[${doctor.field}]]</td>
       <td>[[${doctor.phone}]]</td>
       <td>[[${doctor.address}]]</td>
       <td>[[${doctor.age}]]</td>
       <td>[[${doctor.gender}]]</td>
       <td>nuotrauka</td>
       <td>
-        <a class="h4 me-3" th:href="@{'/gydytojai/redaguoti/' + ${doctor.employeeID}}">Redaguoti</a>
-        <a class="h4 me-3" th:href="@{'/gydytojai/istrinti/' + ${doctor.employeeID}}">Ištrinti</a>
+        <a class="h4 me-3" th:href="@{'/gydytojai/redaguoti/' + ${doctor.doctorID}}">Redaguoti</a>
+        <a class="h4 me-3" th:href="@{'/gydytojai/istrinti/' + ${doctor.doctorID}}">Ištrinti</a>
       </td>
     </tr>
   </th:block>

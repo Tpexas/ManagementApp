@@ -1,7 +1,12 @@
 package com.mygroup.doctor;
 
 import com.mygroup.appointment.Appointment;
+import com.mygroup.consultation.Consultation;
+import com.mygroup.Gender;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -10,25 +15,69 @@ import java.util.List;
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employeeID")
+    @Column(name = "id")
     private Integer doctorID;
+    @Size(min = 2, max = 45)
+    @Column(length = 45, nullable = false)
     private String name;
+    @Size(min = 2, max = 45)
+    @Column(length = 45, nullable = false)
     private String surname;
+    @Size(min = 2, max = 45)
+    @Column(length = 45, nullable = false)
     private String field;
+    @NotBlank(message = "Įveskite veikiantį el. paštą")
+    @Email(message = "Įveskite veikiantį el. paštą")
+    @Column(length = 45, nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
+    @Size(min = 8, max = 45)
+    @Column(length = 45, nullable = false)
     private String password;
+    @Size(min = 4, max = 14)
+    @Column(length = 14, nullable = false)
     private String phone;
+    @Size(min = 2, max = 45)
+    @Column(length = 45, nullable = false)
     private String address;
-    @Column(nullable = false, unique = true, name = "personal_code")
+    @Size(min = 10, max = 11)
+    @Column(length = 11,nullable = false, unique = true, name = "personal_code")
     private String personalCode;
+    @Column(length = 3, nullable = false)
     private Integer age;
-    private String gender;
+    @Column(length = 10, nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     @OneToMany(mappedBy = "doctor")
     private List<Appointment> appointments;
+    @OneToMany(mappedBy = "doctor")
+    private List<Consultation> consultations;
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
 
     public Integer getDoctorID() {
         return doctorID;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public List<Consultation> getConsultations() {
+        return consultations;
+    }
+
+    public void setConsultations(List<Consultation> consultations) {
+        this.consultations = consultations;
     }
 
     public void setDoctorID(Integer doctorID) {
@@ -107,14 +156,6 @@ public class Doctor {
         this.age = age;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     @Override
     public String toString() {
         return "Doctor{" +
@@ -128,7 +169,9 @@ public class Doctor {
                 ", address='" + address + '\'' +
                 ", personalCode='" + personalCode + '\'' +
                 ", age=" + age +
-                ", gender='" + gender + '\'' +
+                ", gender=" + gender +
+                ", appointments=" + appointments +
+                ", consultations=" + consultations +
                 '}';
     }
 }

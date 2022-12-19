@@ -1,4 +1,4 @@
-package com.mygroup.patient;
+package com.mygroup;
 
 public enum Gender {
     VYRAS, MOTERIS, KITA

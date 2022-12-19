@@ -2,18 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>[[${pageTitle}]]</title>
+  <title>Registracija</title>
   <link   rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
 <div class="container-fluid">
   <div>
-    <h2 class="text-center">[[${pageTitle}]]</h2>
+    <h2 class="text-center">Paciento registracija</h2>
   </div>
 
-  <form th:action="@{/gydytojai/issaugoti}" method="post" th:object="${doctor}"
+  <form th:action="@{/registracijos_procesas}" method="post" th:object="${patient}"
         style="max-width: 500px; margin: 0 auto;">
-    <input type="hidden" th:field="*{doctorID}">
+    <input type="hidden" th:field="*{patientID}">
     <div class="border border-secondary rounded p-3">
       <div class="mb-3 row">
         <label class="col-sm-4 col-form-label">El. paštas:</label>
@@ -24,18 +24,10 @@
       </div>
 
       <div class="mb-3 row">
-        <label class="col-sm-4 col-form-label">Sritis:</label>
-        <div class="col-sm-8">
-          <input type="text" th:field="*{field}" class="form-control"/>
-          <p th:if="${#fields.hasErrors('field')}" th:errors="*{field}">Field error</p>
-        </div>
-      </div>
-
-      <div class="mb-3 row">
         <label class="col-sm-4 col-form-label">Vardas:</label>
         <div class="col-sm-8">
           <input type="text" th:field="*{name}" class="form-control"/>
-          <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</p>
+          <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Email error</p>
         </div>
       </div>
 
@@ -43,7 +35,7 @@
         <label class="col-sm-4 col-form-label">Pavardė:</label>
         <div class="col-sm-8">
           <input type="text" th:field="*{surname}" class="form-control"/>
-          <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error</p>
+          <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Email error</p>
         </div>
       </div>
 
@@ -51,7 +43,7 @@
         <label class="col-sm-4 col-form-label">Slaptažodis:</label>
         <div class="col-sm-8">
           <input type="password" th:field="*{password}" class="form-control"/>
-          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</p>
+          <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Email error</p>
         </div>
       </div>
 
@@ -59,7 +51,7 @@
         <label class="col-sm-4 col-form-label">Telefonas:</label>
         <div class="col-sm-8">
           <input type="text" th:field="*{phone}" class="form-control"/>
-          <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</p>
+          <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Email error</p>
         </div>
       </div>
 
@@ -67,7 +59,7 @@
         <label class="col-sm-4 col-form-label">Adresas:</label>
         <div class="col-sm-8">
           <input type="text" th:field="*{address}" class="form-control"/>
-          <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address error</p>
+          <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Email error</p>
         </div>
       </div>
 
@@ -75,7 +67,7 @@
         <label class="col-sm-4 col-form-label">Asmens kodas:</label>
         <div class="col-sm-8">
           <input type="text" th:field="*{personalCode}" class="form-control"/>
-          <p th:if="${#fields.hasErrors('personalCode')}" th:errors="*{personalCode}">Personal code error</p>
+          <p th:if="${#fields.hasErrors('personalCode')}" th:errors="*{personalCode}">Email error</p>
         </div>
       </div>
 
@@ -83,7 +75,7 @@
         <label class="col-sm-4 col-form-label">Amžius:</label>
         <div class="col-sm-8">
           <input type="number" th:field="*{age}" class="form-control" minlength="1" maxlength="3"/>
-          <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</p>
+          <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Email error</p>
         </div>
       </div>
 
@@ -106,7 +98,7 @@
 </div>
 <script type="text/javascript">
   function cancelForm(){
-    window.location = "[[@{/gydytojai}]]";
+    window.location = "[[@{/index}]]";
   }
 </script>
 </body>

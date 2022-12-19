@@ -26,4 +26,12 @@ public class PatientService {
         }
         throw new PatientNotFoundException("Nerastas pacientas su ID = :" + patientID);
     }
+
+    public void delete(Integer patientID) throws PatientNotFoundException {
+        Long count = repo.countByPatientID(patientID);
+        if (count == null || count == 0){
+            throw new PatientNotFoundException("Pacientas nerastas su Šiuo ID "+ patientID);
+        }
+        repo.deleteById(patientID);
+    }
 }

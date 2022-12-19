@@ -5,7 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93303202-c0d6-4456-8006-243195046acd" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/WebSecurity/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/consultation/Consultation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/consultation/ConsultationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/consultation/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/CustomPatientDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/CustomPatientDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/role/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/role/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/appointment_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/appointments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register_success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/signup_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/mygroup/AppointmentRepositoryTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/mygroup/RoleRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/doctor_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/doctor_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/doctors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/doctors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/patient_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/patient_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/patients.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/patients.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/mygroup/PatientRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/mygroup/PatientRepositoryTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +56,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -44,37 +82,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "spring.configuration.checksum": "5d4a7c44ae2c219a425496f8d3c5694e",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5d4a7c44ae2c219a425496f8d3c5694e&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.mygroup.patient" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.mygroup" />
+    </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ManagementAppApplication">
+  <component name="RunManager" selected="JUnit.PatientRepositoryTests.testFindPatientByEmail">
     <configuration name="PatientRepositoryTests.testAddNew" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ManagementApp" />
       <extension name="coverage">
@@ -91,7 +132,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PatientRepositoryTests.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatientRepositoryTests.testAddRoleToExistingPatient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ManagementApp" />
       <extension name="coverage">
         <pattern>
@@ -101,13 +142,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.mygroup" />
       <option name="MAIN_CLASS_NAME" value="com.mygroup.PatientRepositoryTests" />
-      <option name="METHOD_NAME" value="testDelete" />
+      <option name="METHOD_NAME" value="testAddRoleToExistingPatient" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PatientRepositoryTests.testGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatientRepositoryTests.testAddRoleToNewPatient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ManagementApp" />
       <extension name="coverage">
         <pattern>
@@ -117,13 +158,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.mygroup" />
       <option name="MAIN_CLASS_NAME" value="com.mygroup.PatientRepositoryTests" />
-      <option name="METHOD_NAME" value="testGet" />
+      <option name="METHOD_NAME" value="testAddRoleToNewPatient" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PatientRepositoryTests.testListAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatientRepositoryTests.testFindPatientByEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ManagementApp" />
       <extension name="coverage">
         <pattern>
@@ -133,13 +174,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.mygroup" />
       <option name="MAIN_CLASS_NAME" value="com.mygroup.PatientRepositoryTests" />
-      <option name="METHOD_NAME" value="testListAll" />
+      <option name="METHOD_NAME" value="testFindPatientByEmail" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PatientRepositoryTests.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RoleRepositoryTest.testCreateRoles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ManagementApp" />
       <extension name="coverage">
         <pattern>
@@ -148,8 +189,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.mygroup" />
-      <option name="MAIN_CLASS_NAME" value="com.mygroup.PatientRepositoryTests" />
-      <option name="METHOD_NAME" value="testUpdate" />
+      <option name="MAIN_CLASS_NAME" value="com.mygroup.RoleRepositoryTest" />
+      <option name="METHOD_NAME" value="testCreateRoles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,11 +207,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PatientRepositoryTests.testFindPatientByEmail" />
+        <item itemvalue="JUnit.PatientRepositoryTests.testAddRoleToExistingPatient" />
+        <item itemvalue="JUnit.PatientRepositoryTests.testAddRoleToNewPatient" />
+        <item itemvalue="JUnit.RoleRepositoryTest.testCreateRoles" />
         <item itemvalue="JUnit.PatientRepositoryTests.testAddNew" />
-        <item itemvalue="JUnit.PatientRepositoryTests.testGet" />
-        <item itemvalue="JUnit.PatientRepositoryTests.testDelete" />
-        <item itemvalue="JUnit.PatientRepositoryTests.testUpdate" />
-        <item itemvalue="JUnit.PatientRepositoryTests.testListAll" />
       </list>
     </recent_temporary>
   </component>
@@ -203,6 +244,17 @@
       <workItem from="1670873024093" duration="2224000" />
       <workItem from="1670880947554" duration="636000" />
       <workItem from="1670881679582" duration="544000" />
+      <workItem from="1670882329189" duration="111000" />
+      <workItem from="1670927053814" duration="949000" />
+      <workItem from="1670947060601" duration="7086000" />
+      <workItem from="1671030691000" duration="5459000" />
+      <workItem from="1671135048156" duration="5177000" />
+      <workItem from="1671189188184" duration="6484000" />
+      <workItem from="1671209260348" duration="10948000" />
+      <workItem from="1671301291447" duration="3558000" />
+      <workItem from="1671355748301" duration="9098000" />
+      <workItem from="1671449984899" duration="6306000" />
+      <workItem from="1671471133993" duration="4653000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <created>1670796902722</created>
