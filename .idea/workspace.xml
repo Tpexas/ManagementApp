@@ -4,46 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93303202-c0d6-4456-8006-243195046acd" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/WebSecurity/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/consultation/Consultation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/consultation/ConsultationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/consultation/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/CustomPatientDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/CustomPatientDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/role/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/role/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/appointment_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/appointments.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register_success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/signup_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/mygroup/AppointmentRepositoryTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/mygroup/RoleRepositoryTest.java" afterDir="false" />
+    <list default="true" id="93303202-c0d6-4456-8006-243195046acd" name="Changes" comment="12-19 update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/AppointmentDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/FileUploadUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/PasswordEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/user/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/header_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/p1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/delete_patient.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/WebSecurity/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/WebSecurity/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/appointment/AppointmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/consultation/Consultation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/consultation/Consultation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/doctor/DoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/CustomPatientDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/CustomPatientDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/Patient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/patient/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mygroup/role/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mygroup/role/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/appointment_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/appointment_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/appointments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/appointments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/doctor_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/doctor_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/doctors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/doctors.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/patient_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/patient_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/patients.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/patients.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register_success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/signup_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/signup_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/mygroup/PatientRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/mygroup/PatientRepositoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/mygroup/RoleRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/mygroup/RoleRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +58,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -75,6 +75,9 @@
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2IeHVquBc72ZpOXflk1M4hEp6GT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -92,12 +95,13 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/KODAI/IntelliJJAVA/ManagementApp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;5d4a7c44ae2c219a425496f8d3c5694e&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -111,11 +115,18 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.mygroup.patient" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\KODAI\IntelliJJAVA\ManagementApp\src\main\resources\static" />
+      <recent name="F:\KODAI\IntelliJJAVA\ManagementApp\src\main\resources" />
+      <recent name="F:\KODAI\IntelliJJAVA\ManagementApp\src\main\resources\static\images" />
+      <recent name="F:\KODAI\IntelliJJAVA\ManagementApp\src\main\resources\image" />
+      <recent name="F:\KODAI\IntelliJJAVA\ManagementApp\src\main\java\com\mygroup\doctor\image" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.mygroup" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PatientRepositoryTests.testFindPatientByEmail">
+  <component name="RunManager" selected="Spring Boot.ManagementAppApplication">
     <configuration name="PatientRepositoryTests.testAddNew" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ManagementApp" />
       <extension name="coverage">
@@ -254,7 +265,31 @@
       <workItem from="1671301291447" duration="3558000" />
       <workItem from="1671355748301" duration="9098000" />
       <workItem from="1671449984899" duration="6306000" />
-      <workItem from="1671471133993" duration="4653000" />
+      <workItem from="1671471133993" duration="4873000" />
+      <workItem from="1671723383637" duration="5540000" />
+      <workItem from="1671806108360" duration="5563000" />
+      <workItem from="1671986955862" duration="9963000" />
+      <workItem from="1672050490788" duration="8549000" />
+      <workItem from="1672137357191" duration="4608000" />
+      <workItem from="1672424457488" duration="5688000" />
+      <workItem from="1672581249665" duration="9468000" />
+      <workItem from="1672686866414" duration="7860000" />
+      <workItem from="1672697104529" duration="57000" />
+      <workItem from="1673364607251" duration="5306000" />
+      <workItem from="1673524588767" duration="8301000" />
+      <workItem from="1673537648705" duration="1198000" />
+      <workItem from="1673549438380" duration="4423000" />
+      <workItem from="1673618979860" duration="6422000" />
+      <workItem from="1673686110953" duration="331000" />
+      <workItem from="1673710431940" duration="18600000" />
+      <workItem from="1673776087096" duration="9223000" />
+      <workItem from="1673799661022" duration="10892000" />
+      <workItem from="1673955294870" duration="40000" />
+      <workItem from="1673982012175" duration="29000" />
+      <workItem from="1674046267941" duration="8696000" />
+      <workItem from="1674131803910" duration="1596000" />
+      <workItem from="1674154177667" duration="4151000" />
+      <workItem from="1674212779784" duration="599000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <created>1670796902722</created>
@@ -268,7 +303,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1670881821226</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="12-19 update">
+      <created>1671479695292</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1671479695292</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +331,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="12-19 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="12-19 update" />
   </component>
 </project>

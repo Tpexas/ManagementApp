@@ -1,25 +1,34 @@
 package com.mygroup;
 
+import com.mygroup.doctor.Doctor;
+import com.mygroup.doctor.DoctorService;
 import com.mygroup.patient.Patient;
-import com.mygroup.patient.PatientRepository;
 import com.mygroup.patient.PatientService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class MainController {
 
     @Autowired
-    private PatientService patientService;
+    PatientService service;
+
+    @Autowired
+    DoctorService doctorService;
 
     @GetMapping("")
-    public String showHomePage(){
+    public String showHomePage(Model model, @Param("keyword") String keyword){
+        List<Doctor> listDoctors = doctorService.listAll(keyword);
+        model.addAttribute("listDoctors", listDoctors);
+        model.addAttribute("keyword", keyword);
         return "index";
     }
 
@@ -34,8 +43,8 @@ public class MainController {
         if (bindingResult.hasErrors()) {
             return "signup_form";
         }
-        else {
-            patientService.save(patient);
+        else{
+            service.savePatientWithDefaultRole(patient);
             return "register_success";
         }
     }

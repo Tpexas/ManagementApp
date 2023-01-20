@@ -1,16 +1,15 @@
 package com.mygroup.appointment;
 
-import com.mygroup.appointment.Appointment;
-import com.mygroup.appointment.AppointmentRepository;
 import com.mygroup.doctor.Doctor;
 import com.mygroup.doctor.DoctorNotFoundException;
-import com.mygroup.doctor.DoctorRepository;
 import com.mygroup.doctor.DoctorService;
 import com.mygroup.patient.Patient;
 import com.mygroup.patient.PatientRepository;
 import com.mygroup.patient.PatientService;
-import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -29,6 +29,9 @@ public class AppointmentController {
     private DoctorService doctorSevice;
     @Autowired
     private PatientService patientService;
+
+    @Autowired
+    private PatientRepository patientRepo;
 
     @GetMapping("/apsilankymai")
     public String showAppointmentList(Model model){
@@ -48,9 +51,26 @@ public class AppointmentController {
         return "appointment_form";
     }
 
+    @GetMapping("/apsilankymai/naujas/{doctorID}")
+    public String showNewUserAptForm(@PathVariable("doctorID") Integer doctorID, Model model,
+                                     @AuthenticationPrincipal UserDetails currenUser) throws DoctorNotFoundException {
+        Doctor doctor = doctorSevice.get(doctorID);
+        Patient patient = (Patient) patientRepo.findPatientsByEmail(currenUser.getUsername());
+        model.addAttribute("appointment", new Appointment());
+        model.addAttribute("patient", patient);
+        model.addAttribute("doctor", doctor);
+        model.addAttribute("pageTitle", "Pridėti naują apsilankymą");
+        return "appointment_form";
+    }
+
     @PostMapping("/apsilankymai/issaugoti")
-    public String saveAppointment(@Valid Appointment appointment, BindingResult bindingResult, RedirectAttributes ra){
+    public String saveAppointment(@Valid Appointment appointment, BindingResult bindingResult, Model model, RedirectAttributes ra){
         if (bindingResult.hasErrors()) {
+            List<Doctor> listDoctors = doctorSevice.listAll();
+            List<Patient> listPatients = patientService.listAll();
+
+            model.addAttribute("listDoctors", listDoctors);
+            model.addAttribute("listPatients", listPatients);
             return "appointment_form";
         }
         else {

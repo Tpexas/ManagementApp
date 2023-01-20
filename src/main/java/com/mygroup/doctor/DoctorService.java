@@ -1,11 +1,8 @@
 package com.mygroup.doctor;
 
-import com.mygroup.patient.Patient;
-import com.mygroup.patient.PatientNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.print.Doc;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +10,13 @@ import java.util.Optional;
 public class DoctorService {
     @Autowired private DoctorRepository repo;
     public List<Doctor> listAll() {return (List<Doctor>) repo.findAll();}
+
+    public List<Doctor> listAll(String keyword) {
+        if (keyword != null){
+            return (List<Doctor>) repo.findAll(keyword);
+        }
+        return (List<Doctor>) repo.findAll();
+    }
 
     public void save(Doctor doctor) {
         repo.save(doctor);

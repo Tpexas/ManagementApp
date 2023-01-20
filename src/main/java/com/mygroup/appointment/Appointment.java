@@ -1,18 +1,24 @@
 package com.mygroup.appointment;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.mygroup.AppointmentDetails;
 import com.mygroup.doctor.Doctor;
 import com.mygroup.patient.Patient;
-import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 
-import java.security.PrivateKey;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
 
 @Entity
 @Table(name = "appointments")
-public class Appointment {
+public class Appointment implements AppointmentDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -30,7 +36,28 @@ public class Appointment {
     @Column(name = "patient_comment", length = 255, nullable = false)
     private String comment;
 
+    @Override
+    public long daysTillAppointment(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+        Date date = new Date();
+        Date date1 = Date.from(aptDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        sdf.format(date1);
+        sdf.format(date);
+        long diffInMillies = Math.abs(date1.getTime() - date.getTime());
+        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
+        return diff;
+    }
+    public Appointment() {
+    }
+
+    public Appointment(Integer aptID, Patient patient, Doctor doctor, LocalDate aptDate, String comment) {
+        this.aptID = aptID;
+        this.patient = patient;
+        this.doctor = doctor;
+        this.aptDate = aptDate;
+        this.comment = comment;
+    }
 
     public Integer getAptID() {
         return aptID;

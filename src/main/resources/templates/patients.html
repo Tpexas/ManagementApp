@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Pacientai</title>
@@ -8,50 +9,97 @@
 <body>
 <div class="container-fluid text-center">
     <div><h2>Pacientų valdymas</h2></div>
-    <div class="m-2">
-        <a class="h3" th:href="@{/pacientai/naujas}">Pridėti naują pacientą</a>
+
+    <div class="row g-0 mb-3">
+
+        <div class="col-4 text-start" sec:authorize="hasAnyAuthority('Admin', 'Receptionist')">
+            <form th:action="@{/logout}" method="post">
+                Prisijungęs(-usi): <span sec:authentication="name">Username</span>
+                <span sec:authentication="principal.authorities"></span>
+                <input type="submit" value="Atsijungti"/>
+            </form>
+        </div>
+
+        <div class="col-4">
+            <a class="h3" sec:authorize="hasAnyAuthority('Admin', 'Receptionist')" th:href="@{/pacientai/naujas}">Pridėti naują pacientą</a>
+        </div>
+
+        <div sec:authorize="hasAnyAuthority('Admin', 'Receptionist')" class="col-4 text-end">
+            <a th:href="@{/}">Pagrindinis</a>
+            <a th:href="@{/pacientai}">Pacientai</a>
+            <a th:href="@{/gydytojai}">Gydytojai</a>
+            <a th:href="@{/apsilankymai}">Apsilankymai</a>
+        </div>
+
     </div>
-</div>
 
 <div th:if="${message}" class="alert alert-success text-center">
     [[${message}]]
 </div>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Vardas</th>
-                <th>Pavardė</th>
-                <th>Asmens kodas</th>
-                <th>El. paštas</th>
-                <th>Telefonas</th>
-                <th>Adresas</th>
-                <th>Amžius</th>
-                <th>Lytis</th>
-                <th>Nuotrauka</th>
-                <th></th>
-            </tr>
-        </thead>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=patientID&sortDir=' + ${reverseSortDir}}">ID</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=name&sortDir=' + ${reverseSortDir}}">Vardas</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=surname&sortDir=' + ${reverseSortDir}}">Pavardė</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=personalCode&sortDir=' + ${reverseSortDir}}">Asmens kodas</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">El. paštas</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=phone&sortDir=' + ${reverseSortDir}}">Telefonas</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=address&sortDir=' + ${reverseSortDir}}">Adresas</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=age&sortDir=' + ${reverseSortDir}}">Amžius</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=gender&sortDir=' + ${reverseSortDir}}">Lytis</a></th>
+                    <th><a th:href="@{'/pacientai/' + ${currentPage} + '?sortField=roles&sortDir=' + ${reverseSortDir}}">Rolės</a></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="patient : ${listPatients}">
+                <tr>
+                    <td>[[${patient.patientID}]]</td>
+                    <td>[[${patient.name}]]</td>
+                    <td>[[${patient.surname}]]</td>
+                    <td>[[${patient.personalCode}]]</td>
+                    <td>[[${patient.email}]]</td>
+                    <td>[[${patient.phone}]]</td>
+                    <td>[[${patient.address}]]</td>
+                    <td>[[${patient.age}]]</td>
+                    <td>[[${patient.gender}]]</td>
+                    <td>[[${patient.roles}]]</td>
+                    <td>
+                        <a class="h4 me-3" sec:authorize="hasAnyAuthority('Admin', 'Receptionist')" th:href="@{'/pacientai/redaguoti/' + ${patient.patientID}}">Redaguoti</a>
+                        <a class="h4 me-3" sec:authorize="hasAuthority('Admin')" th:href="@{'/pacientai/istrinti/' + ${patient.patientID}}">Ištrinti</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    <div>
+        Iš viso rezultatų: [[${totalItems}]] - Puslapis [[${currentPage}]] iš [[${totalPages}]] -
+        <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+        <a th:if="${currentPage != i}" th:href="@{'/pacientai/' + ${i} + '?sortField=patientID&sortDir=' + ${sortDir}}">[[${i}]]</a>
+            <span th:unless="${currentPage != i}"><b>[[${i}]]</b></span>
+
+    </span>
+    </div>
+
+    <div class="text-start col-2">
+    <table class="table">
         <tbody>
-        <th:block th:each="patient : ${listPatients}">
-            <tr>
-                <td>[[${patient.patientID}]]</td>
-                <td>[[${patient.name}]]</td>
-                <td>[[${patient.surname}]]</td>
-                <td>[[${patient.personalCode}]]</td>
-                <td>[[${patient.email}]]</td>
-                <td>[[${patient.phone}]]</td>
-                <td>[[${patient.address}]]</td>
-                <td>[[${patient.age}]]</td>
-                <td>[[${patient.gender}]]</td>
-                <td>nuotrauka</td>
-                <td>
-                    <a class="h4 me-3" th:href="@{'/pacientai/redaguoti/' + ${patient.patientID}}">Redaguoti</a>
-                    <a class="h4 me-3" th:href="@{'/pacientai/istrinti/' + ${patient.patientID}}">Ištrinti</a>
-                </td>
-            </tr>
-        </th:block>
+        <tr>
+            <td th:text="*{'Vidutinis paciento amžius: '}"></td>
+            <td th:text="*{average+' m.'}"></td>
+        </tr>
+        <tr>
+            <td th:text="*{'Jauniausias pacientas: '}"></td>
+            <td th:text="*{min+' m.'}"></td>
+        </tr>
+        <tr>
+            <td th:text="*{'Seniausias pacientas: '}"></td>
+            <td th:text="*{max+' m.'}"></td>
+        </tr>
         </tbody>
     </table>
+</div>
+</div>
 </body>
 </html>

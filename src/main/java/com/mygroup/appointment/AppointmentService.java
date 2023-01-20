@@ -1,10 +1,6 @@
 package com.mygroup.appointment;
 
-import com.mygroup.doctor.Doctor;
-import com.mygroup.doctor.DoctorNotFoundException;
-import com.mygroup.doctor.DoctorRepository;
-import com.mygroup.patient.Patient;
-import jakarta.persistence.criteria.CriteriaBuilder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -4,14 +4,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mygroup.Gender;
 import com.mygroup.doctor.Doctor;
 import com.mygroup.patient.Patient;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+import javax.persistence.*;
+
+import javax.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "consultations")
-public class Consultation {
+public class Consultation{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

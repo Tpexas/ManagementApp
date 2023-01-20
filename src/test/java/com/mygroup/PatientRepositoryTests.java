@@ -31,7 +31,7 @@ public class PatientRepositoryTests {
         patient.setGender(Gender.VYRAS);
         patient.setEmail("cen@asd");
         patient.setPhone("85853242");
-        patient.setPersonalCode("9381234311");
+        patient.setPersonalCode(93812343);
         patient.setPassword("jonas13aaaassdd");
 
         Patient savedPatient = patientRepo.save(patient);
@@ -92,7 +92,7 @@ public class PatientRepositoryTests {
         patient.setGender(Gender.VYRAS);
         patient.setEmail("cen@asssd");
         patient.setPhone("85853242");
-        patient.setPersonalCode("9381234312");
+        patient.setPersonalCode(93812343);
         patient.setPassword("jonas13aaaassdd");
 
         Role rolePatient = roleRepo.findByName("Patient");

@@ -1,4 +1,6 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
   <title>Gydytojai</title>
@@ -7,10 +9,29 @@
 <body>
 <div class="container-fluid text-center">
   <div><h2>Gydytojų valdymas</h2></div>
-  <div class="m-2">
-    <a class="h3" th:href="@{/gydytojai/naujas}">Pridėti naują gydytoją</a>
+
+  <div class="row g-0 mb-3">
+
+  <div class="col-4 text-start" sec:authorize="hasAnyAuthority('Admin', 'Receptionist')">
+    <form th:action="@{/logout}" method="post">
+      Prisijungęs(-usi): <span sec:authentication="name">Username</span>
+      <span sec:authentication="principal.authorities"></span>
+      <input type="submit" value="Atsijungti"/>
+    </form>
   </div>
-</div>
+
+  <div class="col-4">
+    <a class="h3" sec:authorize="hasAnyAuthority('Admin', 'Receptionist')" th:href="@{/gydytojai/naujas}">Pridėti naują gydytoją</a>
+  </div>
+
+    <div sec:authorize="hasAnyAuthority('Admin', 'Receptionist')" class="col-4 text-end">
+      <a th:href="@{/}">Pagrindinis</a>
+      <a th:href="@{/pacientai}">Pacientai</a>
+      <a th:href="@{/gydytojai}">Gydytojai</a>
+      <a th:href="@{/apsilankymai}">Apsilankymai</a>
+    </div>
+
+  </div>
 <div th:if="${message}" class="alert alert-success text-center">
   [[${message}]]
 </div>
@@ -27,6 +48,7 @@
     <th>Adresas</th>
     <th>Amžius</th>
     <th>Lytis</th>
+    <th>Alga po mokesčių</th>
     <th>Nuotrauka</th>
     <th></th>
   </tr>
@@ -44,14 +66,16 @@
       <td>[[${doctor.address}]]</td>
       <td>[[${doctor.age}]]</td>
       <td>[[${doctor.gender}]]</td>
-      <td>nuotrauka</td>
+      <td  step='0.01'>[[${doctor.salaryAfterTax}]]</td>
+      <td><img type="image" th:src="@{${doctor.ImagePath}}" style="object-position: top; object-fit: cover; height:4rem; width:4rem" /></td>
       <td>
-        <a class="h4 me-3" th:href="@{'/gydytojai/redaguoti/' + ${doctor.doctorID}}">Redaguoti</a>
-        <a class="h4 me-3" th:href="@{'/gydytojai/istrinti/' + ${doctor.doctorID}}">Ištrinti</a>
+        <a class="h4 me-3" sec:authorize="hasAnyAuthority('Admin', 'Receptionist')" th:href="@{'/gydytojai/redaguoti/' + ${doctor.doctorID}}">Redaguoti</a>
+        <a class="h4 me-3" sec:authorize="hasAuthority('Admin')" th:href="@{'/gydytojai/istrinti/' + ${doctor.doctorID}}">Ištrinti</a>
       </td>
     </tr>
   </th:block>
   </tbody>
 </table>
+</div>
 </body>
 </html>

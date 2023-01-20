@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Ištrinti pacientą</title>
+  <link   rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="alert alert-danger" role="alert">
+    <h2 class="text-center" th:text="${'Ar tikrai norite ištrinti pacientą, ID: '+patientID}"></h2>
+  </div>
+
+  <form th:action="@{/istrinti}" th:method="delete" th:object="${patient}"
+        style="max-width: 500px; margin: 0 auto;">
+    <input type="hidden" th:field="*{patientID}">
+    <div class="border border-secondary rounded p-3">
+      <div class="mb-3 row">
+        <label class="col-sm-4 col-form-label">El. paštas:</label>
+        <div class="col-sm-8">
+          <h5  th:text="*{email}" />
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-4 col-form-label">Vardas:</label>
+        <div class="col-sm-8">
+          <h5 th:text="*{name}" />
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-4 col-form-label">Pavardė:</label>
+        <div class="col-sm-8">
+          <h5 th:text="*{surname}"/>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-4 col-form-label">Telefonas:</label>
+        <div class="col-sm-8">
+          <h5 th:text="*{phone}"/>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-4 col-form-label">Adresas:</label>
+        <div class="col-sm-8">
+          <h5 th:text="*{address}"/>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-4 col-form-label">Asmens kodas:</label>
+        <div class="col-sm-8">
+          <h5 th:text="*{personalCode}"/>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-4 col-form-label">Amžius:</label>
+        <div class="col-sm-8">
+          <h5 th:text="*{age}"/>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary m-2" type="submit">Ištrinti</button>
+        <button class="btn btn-secondary m-2" type="button" onclick="cancelForm()">Atšaukti</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+  function cancelForm(){
+    window.location = "[[@{/pacientai}]]";
+  }
+</script>
+</body>
+</html>

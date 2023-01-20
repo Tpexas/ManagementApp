@@ -11,8 +11,6 @@ import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
 
-import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
-
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(value = false)
@@ -28,6 +26,7 @@ public class RoleRepositoryTest {
         repo.saveAll(List.of(patient, admin));
 
         List<Role> listRoles = repo.findAll();
+
         Assertions.assertThat(listRoles.size()).isEqualTo(2);
     }
 

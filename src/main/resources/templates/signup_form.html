@@ -80,14 +80,10 @@
       </div>
 
       <label>Lytis:</label>
-      <!--        <ul>-->
       <div class="d-inline" th:each="gender:${T(com.mygroup.Gender).values()}">
-        <!--                <div class="ui checkboxes inline">-->
         <input type="radio" th:id="${{gender}}" th:value="${{gender}}" th:field="*{gender}" required>
         <label th:text="${{gender}}"></label>
-        <!--                </div>-->
       </div>
-      <!--        </ul>-->
 
       <div class="text-center">
         <button class="btn btn-primary m-2" type="submit">Išsaugoti</button>

@@ -1,17 +1,155 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link   rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        .column {
+            float: left;
+            width: 20%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        /* Display the columns below each other instead of side by side on small screens */
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        /* Add some shadows to create a card effect */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card img{
+            object-position: top;
+            object-fit: cover;
+            height:16rem;
+        }
+        /* Some left and right padding inside the container */
+        .container {
+            padding: 0 16px;
+        }
+
+        /* Clear floats */
+        .container::after, .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .title {
+            color: grey;
+        }
+
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+    </style>
+
 </head>
 <body>
-<div class="container-fluid text-center">
-    <h1>Hello</h1>
-    <a th:href="@{/pacientai}">Pacientai</a>
-    <a th:href="@{/gydytojai}">Gydytojai</a>
-    <a th:href="@{/apsilankymai}">Apsilankymai</a>
+
+<div class="header">
+    <div class="hero-image">
+        <img th:src="@{images/header_image.jpg}" />
+        <div class="hero-text">
+            <h1>Gydytojai</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col search">
+        <form th:action="@{/}">
+            Paieška:
+            <input type="text" name="keyword" th:value="${keyword}" placeholder="Vardas, pavardė, sritis" required/>
+            <input type="submit" class="btn btn-primary btn-sm" value="Ieškoti" />
+            <input type="button" class="btn btn-primary btn-sm" value="Išvalyti" onclick="clearFilter()"/>
+        </form>
+            </div>
+        <div sec:authorize="hasAnyAuthority('Admin', 'Receptionist')" class="col text-center">
+        <a th:href="@{/pacientai}">Pacientai</a>
+        <a th:href="@{/gydytojai}">Gydytojai</a>
+        <a th:href="@{/apsilankymai}">Apsilankymai</a>
+        </div>
+
+            <div sec:authorize="!isAuthenticated()" class="col links">
+                <a class="btn btn-outline-info btn-sm" th:href="@{/login}">Prisijungti</a>
+                <a class="btn btn-outline-info btn-sm" th:href="@{/registracija}">Registracija</a>
+            </div>
+
+            <div class="col links" sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" method="post">
+                    Sveiki <span sec:authentication="principal.name"></span>
+                    <input type="submit" value="Atsijungti"/>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
 </div>
+
+<div class="text-center" sec:authorize="!isAuthenticated()">
+    <h3>Prisijunkite, kad pamatytumėte gydytojų sąrašą</h3>
+</div>
+
+<div sec:authorize="isAuthenticated()" class="container-fluid">
+    <div class="row">
+        <th:block th:each="doctor : ${listDoctors}">
+            <div class="column">
+                <div class="card">
+                    <img th:if="${doctor.ImagePath != NULL}" th:src="@{${doctor.ImagePath}}" />
+                    <img th:unless="${doctor.ImagePath != NULL}" th:src="@{images/p1.jpg}" />
+                    <div class="container">
+                        <b>[[${doctor.name +" "+ doctor.surname}]]</b>
+                        <p class="title">Sritis: [[${doctor.field}]]</p>
+                        <p>Telefonas: [[${doctor.phone}]]</p>
+                        <div sec:authorize="isAuthenticated()">
+                            <p><button class="button">Apsilankyti</button></p>
+                            <p><button class="button">Konsultacija</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    function clearFilter(){
+        window.location = '/';
+    }
+</script>
 
 </body>
 </html>
